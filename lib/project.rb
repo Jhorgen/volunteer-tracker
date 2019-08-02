@@ -21,6 +21,11 @@ def delete
   DB.exec("DELETE FROM projects WHERE id = #{@id};")
 end
 
+def update(title)
+@title = title
+db.exec("UPDATE projects SET name = '#{@title}' WHERE id = #{@id};")
+end
+
 
 
 

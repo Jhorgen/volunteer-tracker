@@ -6,6 +6,8 @@ also_reload('lib/**/*.rb')
 
 DB = PG.connect({:dbname => "volunteer_tracker"})
 
-get ('/')do
-erb :index
+get ('/') do
+  @projects = Project.all
+  @volunteers = Volunteer.all
+  erb(:index)
 end

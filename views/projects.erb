@@ -1,0 +1,10 @@
+<%# <% if @projects.any? %>
+<% @projects.each do |project| %>
+<ul>
+  <li><%= project.id%></li>
+  <li><a href="/projects/<%= project.id %>" title="Project Details"><%=project.title%></a></li>
+</ul>
+<% end %>
+<% else %>
+  <p>There are no projects to display!</p>
+<% end %> %>

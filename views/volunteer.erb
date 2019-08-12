@@ -1,0 +1,9 @@
+  <h2>Edit Volunteer</h2>
+  <form name="edit" class="form-group" action="/volunteer/<%= @volunteer.id %>/edit" method="post">
+    <label for="">Name</label>
+    <input type="text" name="name" value="" required>
+    <button type="submit">Update Volunteer</button>
+      <button type="submit" formaction="/volunteer/<%= @volunteer.id %>/delete" method="post">Delete Volunteer</button></a>
+    <a href="/"><button>Return to projects</button></a>
+  </form>
+</div>

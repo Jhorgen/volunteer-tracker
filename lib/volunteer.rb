@@ -1,11 +1,11 @@
 require 'pry'
 
 class Volunteer
-  attr_reader :name, :project_id, :id
+  attr_accessor :name, :project_id, :id
 
   def initialize(attributes)
-    @id = attributes[:project_id]
     @name = attributes[:name]
+    @id = attributes[:project_id]
   end
 
   def ==(volunteer)
@@ -36,17 +36,18 @@ class Volunteer
     returned_volunteers.each() do |volunteer|
       name = volunteer.fetch("name")
       id = volunteer.fetch("id").to_i
-      volunteers.push(Project.new({:name => name, :id => id}))
+      vol_id = volunteer.fetch("project_id").to_i
+      volunteers.push(Volunteer.new({:name => name, :id => id, :project_id => vol_id}))
     end
     volunteers
   end
 
   def self.find(id)
-    volunteer = DB.exec("SELECT * FROM volunteers WHERE id = #{id};").first
+    volunteer = DB.exec("SELECT * FROM volunteers WHERE id = #{:id};").first
     name = volunteer.fetch("name")
     id = volunteer.fetch("id").to_i
-    Volunteer.new({:name => name, :id => id})
+    vol_id = volunteer.fetch("project_id").to_i
+    Volunteer.new({:name => name, :id => id, :project_id => vol_id})
   end
-
 
 end

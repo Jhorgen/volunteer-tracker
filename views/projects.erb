@@ -3,4 +3,9 @@
 
 <p><a href="/edit_projects/<%= @project.id %>/edit">Edit Project</a></p>
 
-<p><a href=/>Return to Projects</p>
+<form class="" action="/projects/<%= @project.id %>/add" method="post">
+    <label for="">Add Volunteer</label>
+    <input type="text" name="name" value="" required>
+    <button type="submit">Add Volunteer</button>
+  </form>
+  <br>

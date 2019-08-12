@@ -20,7 +20,7 @@ end
 
 get ('/projects/:project_id')do
   @project = Project.find(params[:project_id])
-  erb :projects
+  erb (:projects)
 end
 
 get('/edit_projects/:project_id/edit') do
@@ -44,4 +44,9 @@ patch('/edit_projects/:project_id/edit') do
   project = Project.find(params[:id])
   project.update({:title => params[:title]})
   redirect to "projects/#{project.id}"
+end
+
+get ('/volunteers')do
+    @volunteer = Volunteer.find(params[:project_id])
+    erb :volunteer
 end

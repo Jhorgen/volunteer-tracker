@@ -17,7 +17,7 @@ This program was written with Ruby and Postgres and was designed to test basic d
 ### _Languages, frameworks, libraries, etc!_
 
 * _Ruby_
-* _Postgres*
+* _Postgres_
 
 #### License
 _Open source (c) 2019 **Josh Horgen**_

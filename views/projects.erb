@@ -1,9 +1,6 @@
 <h2><%= @project.title %></h2>
 <p>Project ID: <%= @project.id %></p>
 
-<form action="/projects" method="post">
-  <div class="form-group">
-    <input name="title" class="form-control" type="text">
-  </div>
-  <button type="submit" class="btn btn-success">Edit Project</button>
-</form>
+<p><a href="/edit_projects/<%= @project.id %>/edit">Edit Project</a></p>
+
+<p><a href=/>Return to Projects</p>

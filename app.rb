@@ -22,3 +22,26 @@ get ('/projects/:project_id')do
   @project = Project.find(params[:project_id])
   erb :projects
 end
+
+get('/edit_projects/:project_id/edit') do
+  @project = Project.find(params[:id])
+  erb(:edit_projects)
+end
+
+post('/edit_projects') do
+  'hello world'
+end
+
+post ('/edit_projects/:project_id/edit')do
+    title = params[:title]
+    id = params[:project_id].to_i
+    project = Project.find(id)
+    project.update({:title => title})
+    redirect to ('/')
+end
+
+patch('/edit_projects/:project_id/edit') do
+  project = Project.find(params[:id])
+  project.update({:title => params[:title]})
+  redirect to "projects/#{project.id}"
+end

@@ -50,3 +50,4 @@ get ('/volunteers')do
     @volunteer = Volunteer.find(params[:project_id])
     erb :volunteer
 end
+  

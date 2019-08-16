@@ -1,7 +1,7 @@
 require 'pry'
 
 class Project
-  attr_reader :id, :title
+  attr_reader :id, :title, :volunteers
 
   def initialize(attributes)
     @id = attributes[:id]
@@ -27,7 +27,7 @@ class Project
 
   def update(title)
     @title = title
-    db.exec("UPDATE projects SET name = '#{@title}' WHERE id = #{@id};")
+    DB.exec("UPDATE projects SET name = '#{@title}' WHERE id = #{@id};")
   end
 
   def self.all

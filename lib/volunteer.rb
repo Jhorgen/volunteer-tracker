@@ -5,7 +5,7 @@ class Volunteer
 
   def initialize(attributes)
     @name = attributes[:name]
-    @id = attributes[:project_id]
+    @project_id = attributes[:project_id]
   end
 
   def ==(volunteer)

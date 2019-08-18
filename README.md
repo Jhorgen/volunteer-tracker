@@ -11,7 +11,7 @@ By _Josh Horgen, 2019_
 
 
 ## _Description_
-This program was written with Ruby and Postgres and was designed to test basic database functionality.
+This program was written with Ruby and Postgres and was designed to test basic database functionality. The homepage lists ongoing projects that will display current volunteers for each.
 
 
 ### _Languages, frameworks, libraries, etc!_

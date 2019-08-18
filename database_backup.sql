@@ -25,8 +25,8 @@ SET default_with_oids = false;
 --
 
 CREATE TABLE public.projects (
-    id integer NOT NULL,
-    title character varying NOT NULL
+    id serial,
+    title character varying
 );
 
 
@@ -59,9 +59,9 @@ ALTER SEQUENCE public.projects_id_seq OWNED BY public.projects.id;
 --
 
 CREATE TABLE public.volunteers (
-    id integer NOT NULL,
-    name character varying NOT NULL,
-    project_id integer NOT NULL
+    id serial,
+    name character varying,
+    project_id integer
 );
 
 
@@ -196,4 +196,3 @@ ALTER TABLE ONLY public.volunteers
 --
 -- PostgreSQL database dump complete
 --
-

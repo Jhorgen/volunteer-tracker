@@ -7,15 +7,16 @@ class Volunteer
   def initialize(attributes)
     @name = attributes[:name]
     @project_id = attributes[:project_id]
+    @id = attributes[:id]
   end
 
   def ==(volunteer)
-    self.name == volunteer.name
+    (self.name() == volunteer.name()) && (self.project_id == volunteer.project_id())
   end
 
   def save
-    volunteer = DB.exec("INSERT INTO volunteers (name) VALUES ('#{@name}') RETURNING id;")
-    @id = volunteer.first().fetch("project_id").to_i
+    result = DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}', #{@project_id}) RETURNING id;")
+    @id = result.first().fetch("id").to_i
   end
 
   def delete

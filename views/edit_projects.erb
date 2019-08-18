@@ -1,11 +1,14 @@
-<h2><%= @project.title %></h2>
-<p>Project ID: <%= @project.id %></p>
+<form action="/project/<%= @project.id %>/edit" method="post">
+  <input name="_method" type="hidden" value="patch">
 
-<form action="/edit_projects" method="post">
-  <div class="form-group">
-    <input name="id" class="form-control" type="text">
-  </div>
-  <button type="submit" class="btn btn-success">Submit changes!</button>
+  <label for="title">Edit Project</label>
+  <input id="title" name="title" type="text" value="<%= @project.title %>">
+
+  <button type="submit">Update Project</button>
 </form>
 
-<p><a href=/>Return to Projects</p>
+<form action="/project/<%= @project.id %>/edit" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete Project</button>
+</form>

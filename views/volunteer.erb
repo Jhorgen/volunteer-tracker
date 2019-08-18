@@ -1,9 +1,17 @@
-  <h2>Edit Volunteer</h2>
-  <form name="edit" class="form-group" action="/volunteer/<%= @volunteer.id %>/edit" method="post">
-    <label for="">Name</label>
-    <input type="text" name="name" value="" required>
-    <button type="submit">Update Volunteer</button>
-      <button type="submit" formaction="/volunteer/<%= @volunteer.id %>/delete" method="post">Delete Volunteer</button></a>
-    <a href="/"><button>Return to projects</button></a>
-  </form>
+<div class="container">
+
+<form action="/volunteers/<%= @volunteer.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+
+  <label for="name">Edit Name</label>
+  <input id="name" name="name" type="text" value="<%= @volunteer.name %>">
+
+  <button type="submit">Update</button>
+</form>
+
+<form action="/volunteers/<%= @volunteer.id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete Volunteer</button>
+</form>
 </div>

@@ -1,7 +1,8 @@
+require('./lib/volunteer.rb')
 require 'pry'
 
 class Project
-  attr_reader :id, :title, :volunteers
+  attr_reader :title, :id
 
   def initialize(attributes)
     @id = attributes[:id]
@@ -9,7 +10,7 @@ class Project
   end
 
   def ==(project)
-    @title == project.title
+    self.title == project.title
   end
 
   def save
@@ -19,6 +20,7 @@ class Project
 
   def delete
     DB.exec("DELETE FROM projects WHERE id = #{@id};")
+    DB.exec("DELETE FROM volunteers WHERE project_id = #{@id};")
   end
 
   def self.clear
@@ -27,7 +29,7 @@ class Project
 
   def update(title)
     @title = title
-    DB.exec("UPDATE projects SET name = '#{@title}' WHERE id = #{@id};")
+    DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
   end
 
   def self.all
@@ -48,10 +50,8 @@ class Project
     Project.new({:title => title, :id => id})
   end
 
-
-
-
-
-
+  def volunteers
+    Volunteer.find_by_project(self.id)
+  end
 
 end

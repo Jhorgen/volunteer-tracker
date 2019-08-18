@@ -1,4 +1,4 @@
-require('./lib/project.rb')
+require('./lib/project')
 require 'pry'
 
 class Volunteer

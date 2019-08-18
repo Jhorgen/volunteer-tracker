@@ -1,4 +1,4 @@
-require('./lib/volunteer.rb')
+require('./lib/volunteer')
 require 'pry'
 
 class Project
@@ -27,8 +27,8 @@ class Project
     DB.exec("DELETE FROM projects *;")
   end
 
-  def update(title)
-    @title = title
+  def update(attributes)
+    @title = attributes.fetch(:title)
     DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
   end
 

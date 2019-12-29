@@ -1,4 +1,5 @@
-<h2><%= @project.title %></h2>
+<h2>Project: <%= @project.title %></h2>
+<p><a href="/" /a>Back to all projects<a/></p>
 <h4><a href="/project/<%= @project.id %>/edit">Edit Project</a></h4>
 
 <% if @volunteers.any?%>

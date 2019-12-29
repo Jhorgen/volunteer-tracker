@@ -1,3 +1,6 @@
+<a href="/project/<%= @project.id %>">Back to project</a>
+<br>
+<br>
 <form action="/project/<%= @project.id %>/edit" method="post">
   <input name="_method" type="hidden" value="patch">
 
@@ -9,6 +12,6 @@
 
 <form action="/project/<%= @project.id %>/edit" method="post">
   <input name="_method" type="hidden" value="delete">
-
+  <br><br>
   <button type="submit">Delete Project</button>
 </form>

@@ -9,6 +9,7 @@ require('rspec')
 require('rack')
 also_reload('lib/**/*.rb')
 
+config.assets.initialize_on_precompile = false
 DB = PG.connect({:dbname => "volunteer_tracker"})
 
 get ('/') do

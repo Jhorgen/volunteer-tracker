@@ -9,7 +9,11 @@ require('rspec')
 require('rack')
 also_reload('lib/**/*.rb')
 
+<<<<<<< HEAD
 DB = PG.connect ENV["DATABASE_URL"]
+=======
+DB = PG.connect ENV["HEROKU_POSTGRESQL_CRIMSON_URL"]
+>>>>>>> c47c3ab55be37a57b0675e5b926ae4e431ef9a1c
 
 get ('/') do
   @projects = Project.all

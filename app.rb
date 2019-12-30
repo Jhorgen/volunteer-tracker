@@ -9,7 +9,7 @@ require('rspec')
 require('rack')
 also_reload('lib/**/*.rb')
 
-DB = PG.connect({:dbname => "volunteer_tracker"})
+DB = PG.connect({:dbname => "HEROKU_POSTGRESQL_CRIMSON"})
 
 get ('/') do
   @projects = Project.all
